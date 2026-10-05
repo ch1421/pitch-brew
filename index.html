@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#030303">
+    <title>PITCH&BREW</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="splashScreen">
+    <div class="splash-content">
+        <div class="splash-line"></div>
+        <h1 class="brand-logo splash-brand">PITCH<span>&</span>BREW</h1>
+        <p class="splash-subtitle">MULTI SPORTS ARENA</p>
+        <div class="splash-line"></div>
+    </div>
+</div>
+
+<main id="app">
+    <header class="top-header">
+        <div class="brand-logo top-brand">PITCH<span>&</span>BREW</div>
+        <div class="brand-tag">MULTI SPORTS ARENA</div>
+    </header>
+
+    <section id="homePage" class="page active">
+        <div class="hero">
+            <p class="small-heading">WELCOME TO</p>
+            <h1>PITCH<span>&</span>BREW</h1>
+            <p class="hero-text">PLAY. COMPETE. WIN.</p>
+        </div>
+
+        <div class="home-buttons">
+            <button class="main-button" onclick="showPage('bookingPage')">
+                <div class="button-icon">
+                    <svg viewBox="0 0 64 64">
+                        <path d="M12 26h40v27H12z"/>
+                        <path d="M18 26V17h28v9"/>
+                        <path d="M20 34h24"/>
+                        <path d="M20 42h24"/>
+                    </svg>
+                </div>
+                <div class="button-content">
+                    <strong>BOOK YOUR SLOT</strong>
+                    <small>Check availability & reserve</small>
+                </div>
+                <span class="arrow">›</span>
+            </button>
+
+            <button class="main-button" onclick="showPage('cafePage')">
+                <div class="button-icon">
+                    <svg viewBox="0 0 64 64">
+                        <path d="M13 25h37v20c0 7-7 11-18 11S13 52 13 45z"/>
+                        <path d="M50 30h5c6 0 8 4 8 8s-3 8-8 8h-6"/>
+                        <path d="M22 18c-4-6 5-7 1-13"/>
+                        <path d="M33 18c-4-6 5-7 1-13"/>
+                        <path d="M44 18c-4-6 5-7 1-13"/>
+                    </svg>
+                </div>
+                <div class="button-content">
+                    <strong>CAFE</strong>
+                    <small>Chai, snacks & refreshments</small>
+                </div>
+                <span class="arrow">›</span>
+            </button>
+
+            <button class="main-button" onclick="showPage('contactPage')">
+                <div class="button-icon">
+                    <svg viewBox="0 0 64 64">
+                        <path d="M19 12h9l4 11-6 4c3 7 8 12 15 15l4-6 11 4v9c0 3-3 5-6 5C30 54 10 34 10 14c0-3 2-2 9-2z"/>
+                    </svg>
+                </div>
+                <div class="button-content">
+                    <strong>CONTACT US</strong>
+                    <small>Call or WhatsApp us</small>
+                </div>
+                <span class="arrow">›</span>
+            </button>
+        </div>
+
+        <div class="sports-strip">
+            <span>CRICKET</span><i>•</i>
+            <span>BADMINTON</span><i>•</i>
+            <span>FOOTBALL</span><i>•</i>
+            <span>VOLLEYBALL</span>
+        </div>
+    </section>
+
+    <section id="bookingPage" class="page">
+        <div class="page-title">
+            <button class="back-button" onclick="showPage('homePage')">‹</button>
+            <div>
+                <p>RESERVE YOUR</p>
+                <h2>SPORTS SLOT</h2>
+            </div>
+        </div>
+
+        <div class="availability-card">
+            <div class="availability-heading">
+                <div>
+                    <span>LIVE SCHEDULE</span>
+                    <h3>CHECK AVAILABILITY</h3>
+                </div>
+                <div class="legend">
+                    <span><i class="dot green"></i> Available</span>
+                    <span><i class="dot red"></i> Booked</span>
+                </div>
+            </div>
+
+            <label class="schedule-label">SELECT DATE</label>
+            <input id="scheduleDate" type="date">
+
+            <div id="scheduleDay" class="schedule-day">Loading schedule...</div>
+            <div id="scheduleSlots" class="schedule-slots">
+                <div class="loading-box">Loading latest schedule...</div>
+            </div>
+        </div>
+
+        <div id="bookingFormCard" class="form-card disabled-form">
+            <div class="selected-slot" id="selectedSlot">
+                <span>SELECT AN AVAILABLE TIME ABOVE</span>
+            </div>
+
+            <div class="input-group">
+                <label>FULL NAME</label>
+                <input id="name" type="text" placeholder="Enter your name">
+            </div>
+
+            <div class="input-group">
+                <label>PHONE NUMBER</label>
+                <input id="phone" type="tel" placeholder="03XX-XXXXXXX">
+            </div>
+
+            <div class="input-group">
+                <label>SPORT</label>
+                <select id="sport">
+                    <option value="">Select Sport</option>
+                    <option>Cricket</option>
+                    <option>Badminton</option>
+                    <option>Football</option>
+                    <option>Volleyball</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>DATE</label>
+                <input id="date" type="date" readonly>
+            </div>
+
+            <div class="two-columns">
+                <div class="input-group">
+                    <label>FROM</label>
+                    <input id="fromTime" type="time" readonly>
+                </div>
+                <div class="input-group">
+                    <label>TO</label>
+                    <input id="toTime" type="time" readonly>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>NUMBER OF PLAYERS</label>
+                <input id="players" type="number" min="1" placeholder="e.g. 10">
+            </div>
+
+            <div class="input-group">
+                <label>ADDITIONAL MESSAGE</label>
+                <textarea id="message" rows="3" placeholder="Anything else you want to tell us?"></textarea>
+            </div>
+
+            <button class="gold-button" onclick="sendBooking()">
+                CONFIRM BOOKING <span>→</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="cafePage" class="page">
+        <div class="page-title">
+            <button class="back-button" onclick="showPage('homePage')">‹</button>
+            <div>
+                <p>REFRESH &</p>
+                <h2>CAFE</h2>
+            </div>
+        </div>
+
+        <p class="cafe-intro">Enjoy something delicious before or after your game.</p>
+
+        <div class="cafe-grid">
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><path class="svg-gold" d="M45 42h58v37c0 16-12 27-29 27S45 95 45 79V42Z"/><path class="svg-gold" d="M103 52h13c13 0 18 8 18 16s-6 15-18 15h-13"/><path class="svg-gold" d="M56 28c-8-12 8-15 0-25"/><path class="svg-gold" d="M76 28c-8-12 8-15 0-25"/><path class="svg-gold" d="M94 28c-8-12 8-15 0-25"/></svg></div><h3>CHAI</h3><strong>Rs. 50</strong></div>
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><circle class="svg-gold-fill" cx="75" cy="62" r="42"/><circle class="svg-dark" cx="75" cy="62" r="28"/><path class="svg-gold" d="M47 51c18 10 39 10 56 0"/><path class="svg-gold" d="M48 72c18-10 39-10 54 0"/></svg></div><h3>PARATHA</h3><strong>Rs. 50</strong></div>
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><path class="svg-gold" d="M48 42L55 98H105L112 42Z"/><path class="svg-gold" d="M55 42h50"/><path class="svg-gold" d="M60 44L54 15"/><path class="svg-gold" d="M72 44L70 8"/><path class="svg-gold" d="M84 44L86 12"/><path class="svg-gold" d="M96 44L102 16"/></svg></div><h3>FRIES</h3><strong>Rs. 100</strong></div>
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><path class="svg-gold-fill" d="M48 18h54l9 84H39z"/><path class="svg-dark" d="M57 43c12-12 27 12 39 0"/><circle class="svg-gold-fill" cx="75" cy="69" r="17"/></svg></div><h3>LAYS</h3><strong>Rs. 70</strong></div>
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><path class="svg-gold" d="M55 25h40l-5 78H60z"/><path class="svg-gold" d="M55 25h40"/><path class="svg-gold" d="M63 15h24"/><path class="svg-gold" d="M65 48h30"/><path class="svg-gold" d="M67 70h26"/></svg></div><h3>COLD DRINK</h3><strong>Rs. 220</strong></div>
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><path class="svg-gold" d="M60 22h30l6 80H54z"/><path class="svg-gold" d="M63 22V10h24v12"/><path class="svg-gold" d="M58 50h35"/></svg></div><h3>MINERAL WATER</h3><strong>Rs. 150</strong></div>
+            <div class="cafe-card"><div class="food-art"><svg viewBox="0 0 150 120"><path class="svg-gold" d="M52 35h45l-7 68H59z"/><path class="svg-gold" d="M76 35L91 8"/><circle class="svg-gold" cx="75" cy="65" r="12"/></svg></div><h3>JUICE</h3><strong>Rs. 150</strong></div>
+        </div>
+    </section>
+
+    <section id="contactPage" class="page">
+        <div class="page-title">
+            <button class="back-button" onclick="showPage('homePage')">‹</button>
+            <div>
+                <p>GET IN</p>
+                <h2>TOUCH</h2>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-brand brand-logo">PITCH<span>&</span>BREW</div>
+            <p class="contact-description">
+                Have a question, want to book a slot or need more information?
+                Get in touch with us.
+            </p>
+
+            <a class="contact-button" href="tel:03025122000">
+                <span class="contact-icon"><svg viewBox="0 0 64 64"><path d="M19 12h9l4 11-6 4c3 7 8 12 15 15l4-6 11 4v9c0 3-3 5-6 5C30 54 10 34 10 14c0-3 2-2 9-2z"/></svg></span>
+                <div><strong>CALL US</strong><small>0302-5122000</small></div><span>→</span>
+            </a>
+
+            <a class="contact-button" href="https://wa.me/923025122000?text=Assalam%20o%20Alaikum%20PITCH%26BREW%2C%20mujhe%20aap%20se%20contact%20karna%20hai." target="_blank">
+                <span class="contact-icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><path d="M22 47l3-9"/><path d="M23 25c4 11 10 16 20 19"/></svg></span>
+                <div><strong>WHATSAPP</strong><small>Chat with us</small></div><span>→</span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<div id="toast"></div>
+<script src="/static/script.js"></script>
+</body>
+</html>
